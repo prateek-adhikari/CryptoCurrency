@@ -1,0 +1,17 @@
+{% extends 'crypto/base.html' %} {% block content %}
+<div class="row">
+
+    <div class="col-12 jumbotron">
+        {% if notfound %}
+        <h4>{{notfound}}</h4>
+        {% else %} {% if crypto.Response %}
+        <h4>Sorry that symbol doesnt exist. Please try again!!</h4>
+        {% endif %} {% for key, value in crypto.DISPLAY.items %}
+        <strong>Name: </strong>{{key}}<br>
+        <strong>Price: </strong>{{value.INR.PRICE}}<br>
+        <strong>Day High: </strong>{{value.INR.LOWDAY}}<br>
+        <strong>Day Low: </strong>{{value.INR.HIGHDAY}}<br>
+        <strong>Market Cap: </strong>{{value.INR.MKTCAP}}<br> {% endfor %} {% endif %}
+    </div>
+</div>
+{% endblock %}
